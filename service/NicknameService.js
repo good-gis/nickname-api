@@ -15,11 +15,11 @@ class NicknameService {
         return Nickname.findById(id);
     }
 
-    async update(nickname) {
-        if (!nickname._id) {
+    async update(id, nickname) {
+        if (!id) {
             throw new Error('не указан ID')
         }
-        return Nickname.findByIdAndUpdate(nickname._id, nickname, {new: true});
+        return Nickname.findByIdAndUpdate(id, nickname, {new: true});
     }
 
     async delete(id) {

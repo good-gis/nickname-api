@@ -28,7 +28,7 @@ class NicknameController {
     }
     async update(req, res) {
         try {
-            const updatedNickname = await NicknameService.update(req.body);
+            const updatedNickname = await NicknameService.update(req.params.id, req.body);
             return res.json(updatedNickname);
         } catch (e) {
             res.status(500).json(e.message)
@@ -36,7 +36,7 @@ class NicknameController {
     }
     async delete(req, res) {
         try {
-            const nickname = await NicknameService.create(req.params.id);
+            const nickname = await NicknameService.delete(req.params.id);
             return res.json(nickname)
         } catch (e) {
             res.status(500).json(e)
